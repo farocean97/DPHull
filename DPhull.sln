@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DPhull", "DPhull\DPhull.vcxproj", "{E63F7FBB-0F29-43AB-A127-C6574A38541A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E63F7FBB-0F29-43AB-A127-C6574A38541A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{E63F7FBB-0F29-43AB-A127-C6574A38541A}.Debug|Win32.Build.0 = Debug|Win32
+		{E63F7FBB-0F29-43AB-A127-C6574A38541A}.Release|Win32.ActiveCfg = Release|Win32
+		{E63F7FBB-0F29-43AB-A127-C6574A38541A}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
