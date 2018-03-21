@@ -24,10 +24,10 @@ typedef double HOMOG[3];
 typedef struct {
 	int top; //top index
 	int bot; //bot index
-	int hp;  //
-	int op[HULL_MAX_3];
-	POINT *elt[HULL_MAX_2];
-	POINT *helt[HULL_MAX_3];
+	int hp;  //operation index from 0...
+	int op[HULL_MAX_3];            //operation type: push_op, top_op, bot_op
+	POINT *elt[HULL_MAX_2];       // double end array storing vertex forming convex
+	POINT *helt[HULL_MAX_3];      // Storing the history of vertex operated on
 } PATH_HULL;
 
 #define MIN(a,b) (a<b?a:b)
