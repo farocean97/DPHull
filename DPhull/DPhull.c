@@ -66,7 +66,7 @@ POINT *PHtag;
 
 
 int LEFT_OF(POINT *a, POINT *b, POINT *c) {
-	return (((*a)[XX] - (*c)[XX])*(((*b)[YY] - (*c)[YY])) >= (((*b)[XX] - (*c)[XX])*((*a)[YY] - (*c)[YY])));
+	return (((*a)[XX] - (*c)[XX])*(((*b)[YY] - (*c)[YY])) >= (((*b)[XX] - (*c)[XX])*((*a)[YY] - (*c)[YY]))); //CA * CB >0
 }
 
 int SLOPE_SIGN(PATH_HULL *h, int p,int q, HOMOG l) {
@@ -80,8 +80,9 @@ void CROSSPROD_2CCH(POINT p,POINT q, HOMOG *r) {
 	(*r)[YY] = q[XX]-p[XX];
 }
 
+//dist from point C to line AB :  (AC*AB)/ |AB| 
 double DOTPROD_2CH(POINT p, HOMOG q) { 
-	return (q[WW]+p[XX]*q[XX]+p[YY]*q[YY]);
+	return (q[WW]+p[XX]*q[XX]+p[YY]*q[YY]); //Cross product AC * AB
 }
 
 
@@ -92,12 +93,16 @@ void  Hull_Push(PATH_HULL *h, POINT *e) {
 
 
 void Hull_Pop_Top(PATH_HULL *h) {
-	h->helt[++h->hp] = h->elt[h->top--];
+	h->helt[++h->hp] = h->elt[h->top];
+	h->elt[h->top] = NULL; //remove the top 
+	h->top--;
 	h->op[h->hp] = TOP_OP;
 }
 
 void Hull_Pop_Bot(PATH_HULL *h) {
-	h->helt[++h->hp] = h->elt[h->bot++];
+	h->helt[++h->hp] = h->elt[h->bot];
+	h->elt[h->bot] = NULL; //remove the bot
+	h->bot++;
 	h->op[h->hp] = BOT_OP;
 }
 
