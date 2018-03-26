@@ -3,8 +3,8 @@
 #include<stdlib.h>
 #include<string.h>
 
-#define EPSILON 0.3
-#define EPSILON_SQ 0.09
+#define EPSILON 1
+#define EPSILON_SQ 3
 
 #define HULL_MAX 20
 #define HULL_MAX_2 40
@@ -238,7 +238,7 @@ POINT *DPHull(POINT *i,POINT *j) {
 	CROSSPROD_2CCH(*i,*j,&line);
 	len_sq = line[XX]*line[XX] + line[YY]*line[YY];
 
-	if((j-i)<1) {
+	if((j-i)<2) {
 		return j;
 	}else {
 		Find_Extreme(left, line, &lextr,&ldist);
@@ -262,7 +262,7 @@ POINT *DPHull(POINT *i,POINT *j) {
 			else {
 				Split(left,lextr);
 				tmp = DPHull(lextr,j);
-				Build(rextr,j);
+				Build(i, lextr);
 				OutputVertex(DPHull(i,lextr));
 				return tmp;
 			}
@@ -276,7 +276,7 @@ POINT *DPHull(POINT *i,POINT *j) {
 void main() {
 	POINT p1 = {1,2};
 	POINT p2 = {2,1};
-	POINT p3 = {3,3.5};
+	POINT p3 = {3,8};
 	POINT p4 = {4, 2};
 	POINT p5 = {5,6};
 	POINT p6 = {6,2};
